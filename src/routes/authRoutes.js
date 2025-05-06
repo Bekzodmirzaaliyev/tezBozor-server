@@ -24,10 +24,7 @@ router.post("/register", async (req, res) => {
     await user.save();
 
     res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
+      user,
     });
   } catch (e) {
     console.error("Error: ", e);
@@ -52,12 +49,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-    });
+    res.json(user);
   } catch (e) {
     console.error("Error: ", e);
     res.status(500).json({ message: "Server error" });

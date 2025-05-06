@@ -12,6 +12,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true
   },
+  avatar: {
+    type:String,
+    required:false,
+    default: "https://cdn-icons-png.flaticon.com/512/10307/10307911.png"
+  },
   password: {
     type: String,
     required: true
@@ -43,4 +48,4 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User1063", userSchema);
